@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "memory-game"
+    }
+  },
+  "defaultProject": "memory-game",
+  "cli": {
+    "analytics": "e942cf3f-243b-4837-9b42-25e670a4b2ec"
+  }
 }
