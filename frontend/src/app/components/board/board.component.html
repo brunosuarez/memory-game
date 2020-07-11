@@ -1,0 +1,69 @@
+<div class="instructions">
+    <h2>INSTRUÇÕES</h2>
+    <img src="../../../assets/icons/rules.png" alt="regras">
+    <p>
+        Atenção as regras do nosso jogo: <br>
+        Abaixo temos 20 cartas, 10 pares delas com a temática de esportes olímpicos. <br>
+        Nosso jogo é composto por sucessivas rodadas, cada rodada possui a escolha de duas cartas,
+        essa escolha se dá por meio de um clique simples nas cartas. <br>
+        Ao clicar na segunda carta e tendo acertado, as mesmas permanecerão viradas e com seu conteúdo 
+        explícito. Com o acerto será contabilizado um ponto. <br>
+        Caso não acerte o par na rodada, as cartas serão viradas novamente, ocultando o conteúdo para 
+        a próxima rodada. <br>
+        Ao acertar todos os dez pares, você terá vencido o jogo. <br>
+        Caso queira recomeçar o jogo, basta clicar no botão 'Jogar Novamente' 
+        e as cartas serão embaralhadas e o game se reiniciará. <br>
+        Bom Jogo e Boa Sorte!
+    </p>
+</div> <br><br>
+
+<div class="card-informations">
+    <h2>CARTAS</h2>
+    <img src="../../../assets/icons/card-game.png" alt="cartas">
+    <h3>Rodada: {{ round }} </h3> 
+    <h3>Pontuação: {{ score }} </h3><br>
+</div>
+<div id="board-container">
+    <div class="card" [id]="card.id" *ngFor="let card of cards" (click)="showCard(card)">
+        <div class="side back" *ngIf="!card.showCard; else sideFront"></div>
+        <ng-template #sideFront>
+            <img [src]="card.imagem" class="side front" />
+        </ng-template>
+    </div>
+</div>   
+
+    <button class="bt-return" (click)="resetGame()">Jogar Novamente</button> &nbsp; &nbsp;
+    <button class="bt-return" routerLink="/">Voltar a Home</button>
+
+    <h1>RANGING DE JOGADORES</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID Jogador(a)</th>
+                <th>Nome</th>
+                <th>Qtde. Rodadas</th>
+            </tr>
+        </thead>
+    <tbody id="tb-players">
+        <tr class="player">
+            <td class="id-player">01</td>
+            <td class="name-player">Usain Bolt</td>
+            <td class="rounds-player">12</td>
+        </tr>
+
+        <tr class="player">
+            <td class="id-player">02</td>
+            <td class="name-player">Michael Phelps</td>
+            <td class="rounds-player">15</td>
+        </tr>
+
+        <tr class="player">
+            <td class="id-player">03</td>
+            <td class="name-player">Serena Williams</td>
+            <td class="rounds-player">16</td>
+        </tr>
+        
+    </tbody>
+</table><br>    
+
+
